@@ -1,0 +1,86 @@
+{
+  "menu": [
+    {
+      "url": "/dashboard",
+      "name": "Tableau de bord",
+      "slug": "dashboard",
+      "icon": "menu-icon tf-icons ti ti-smart-home"
+    },
+    {
+      "name": "RH",
+      "icon": "menu-icon tf-icons ti ti-users",
+      "slug": "app-rh",
+      "submenu": [
+        { "url": "/employes", "name": "Employés", "slug": "employes.index" },
+        { "url": "/departements", "name": "Départements", "slug": "departements.index" },
+        { "url": "/contrats", "name": "Contrats", "slug": "contrats.index" },
+        { "url": "/plannings", "name": "Plannings", "slug": "plannings.index" },
+        { "url": "/horaires", "name": "Horaires", "slug": "horaires.index" },
+        { "url": "/jours_ferier", "name": "Jours fériés", "slug": "jours_ferier.index" },
+        { "url": "/absences-admin", "name": "Absences", "slug": "absences-admin.index" },
+        { "url": "/conge/soldes", "name": "Soldes de congés", "slug": "conge.soldes.index" },
+        { "url": "/demandes-explications", "name": "Demandes d'explication", "slug": "demandes-explications.index" }
+      ]
+    },
+    {
+      "name": "Paie",
+      "icon": "menu-icon tf-icons ti ti-cash",
+      "slug": "app-paie",
+      "submenu": [
+        { "url": "/paie/dashboard", "name": "Tableau de bord", "slug": "paie.dashboard" },
+        { "url": "/paie/variables", "name": "Variables de paie", "slug": "paie.variables.index" },
+        { "url": "/paie/bulletins", "name": "Bulletins", "slug": "paie.bulletins.index" },
+        { "url": "/paie/simulations", "name": "Simulations", "slug": "paie.simulations.index" },
+        { "url": "/paie/elements-paie", "name": "Éléments de paie", "slug": "paie.elements-paie.index" },
+        { "url": "/paie/baremes-fiscaux", "name": "Barèmes fiscaux", "slug": "paie.baremes-fiscaux.index" }
+      ]
+    },
+    {
+      "name": "SAV",
+      "icon": "menu-icon tf-icons ti ti-headset",
+      "slug": "app-sav",
+      "submenu": [
+        { "url": "/sav", "name": "Tableau de bord", "slug": "sav.dashboard" },
+        { "url": "/sav/fiches-progres", "name": "Fiches de progrès", "slug": "sav.fiches-progres.index" },
+        { "url": "/sav/contrats", "name": "Contrats SAV", "slug": "sav.contrats.index" },
+        { "url": "/sav/garanties", "name": "Garanties", "slug": "sav.garanties.index" },
+        { "url": "/sav/interactions", "name": "Interactions clients", "slug": "sav.interactions.index" },
+        { "url": "/sav/parc", "name": "Parc client", "slug": "sav.parc.index" },
+        { "url": "/sav/maintenances", "name": "Maintenances", "slug": "sav.maintenances.index" },
+        { "url": "/sav/interventions", "name": "Interventions", "slug": "sav.interventions.index" }
+      ]
+    },
+    {
+      "name": "Articles & Dotations",
+      "icon": "menu-icon tf-icons ti ti-box",
+      "slug": "app-articles-dotations",
+      "submenu": [
+        { "url": "/articles", "name": "Articles", "slug": "articles.index" },
+        { "url": "/dotations", "name": "Dotations", "slug": "dotations.index" }
+      ]
+    },
+    {
+      "name": "Immobilisations",
+      "icon": "menu-icon tf-icons ti ti-building-warehouse",
+      "slug": "app-immobilisations",
+      "submenu": [
+        { "url": "/immobilisations/dashboard", "name": "Tableau de bord", "slug": "immobilisations.dashboard" },
+        { "url": "/immobilisations/categories", "name": "Catégories", "slug": "immobilisations.categories.index" },
+        { "url": "/immobilisations/sites", "name": "Sites", "slug": "immobilisations.sites.index" },
+        { "url": "/immobilisations/biens", "name": "Biens", "slug": "immobilisations.biens.index" }
+      ]
+    },
+    {
+      "name": "Ronde & Supervision",
+      "icon": "menu-icon tf-icons ti ti-shield-check",
+      "slug": "app-ronde-supervision",
+      "submenu": [
+        { "url": "/sie/plannings-ronde", "name": "Plannings de ronde", "slug": "sie.plannings-ronde.index" },
+        { "url": "/sie/pointcontroles", "name": "Points de contrôle", "slug": "sie.pointcontroles.index" },
+        { "url": "/sie/rondes", "name": "Rondes", "slug": "sie.rondes.index" },
+        { "url": "/superviseur/pointcontroles", "name": "Points de contrôle (superviseur)", "slug": "superviseur.pointcontroles.index" },
+        { "url": "/supervision/visites", "name": "Visites de supervision", "slug": "supervision.visites.index" }
+      ]
+    }
+  ]
+}

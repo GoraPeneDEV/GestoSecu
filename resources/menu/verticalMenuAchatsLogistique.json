@@ -1,0 +1,31 @@
+{
+  "menu": [
+    {
+      "url": "/dashboard",
+      "name": "Tableau de bord",
+      "slug": "dashboard",
+      "icon": "menu-icon tf-icons ti ti-smart-home"
+    },
+    {
+      "name": "Articles & Dotations",
+      "icon": "menu-icon tf-icons ti ti-box",
+      "slug": "app-articles-dotations",
+      "submenu": [
+        { "url": "/articles", "name": "Articles", "slug": "articles.index" },
+        { "url": "/articles/inventaire", "name": "Rapport d'inventaire", "slug": "articles.inventaire" },
+        { "url": "/dotations", "name": "Dotations", "slug": "dotations.index" }
+      ]
+    },
+    {
+      "name": "Immobilisations",
+      "icon": "menu-icon tf-icons ti ti-building-warehouse",
+      "slug": "app-immobilisations",
+      "submenu": [
+        { "url": "/immobilisations/dashboard", "name": "Tableau de bord", "slug": "immobilisations.dashboard" },
+        { "url": "/immobilisations/categories", "name": "Catégories", "slug": "immobilisations.categories.index" },
+        { "url": "/immobilisations/sites", "name": "Sites", "slug": "immobilisations.sites.index" },
+        { "url": "/immobilisations/biens", "name": "Biens", "slug": "immobilisations.biens.index" }
+      ]
+    }
+  ]
+}

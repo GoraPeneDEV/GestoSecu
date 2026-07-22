@@ -1,0 +1,21 @@
+{
+  "menu": [
+    {
+      "url": "/dashboard",
+      "name": "Tableau de bord",
+      "slug": "dashboard",
+      "icon": "menu-icon tf-icons ti ti-smart-home"
+    },
+    {
+      "name": "Paie",
+      "icon": "menu-icon tf-icons ti ti-cash",
+      "slug": "app-paie",
+      "submenu": [
+        { "url": "/paie/dashboard", "name": "Tableau de bord", "slug": "paie.dashboard" },
+        { "url": "/paie/bulletins", "name": "Bulletins", "slug": "paie.bulletins.index" },
+        { "url": "/paie/simulations", "name": "Simulations", "slug": "paie.simulations.index" },
+        { "url": "/paie/baremes-fiscaux", "name": "Barèmes fiscaux", "slug": "paie.baremes-fiscaux.index" }
+      ]
+    }
+  ]
+}

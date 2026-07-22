@@ -1,0 +1,29 @@
+{
+  "menu": [
+    {
+      "url": "/dashboard",
+      "name": "Tableau de bord",
+      "slug": "dashboard",
+      "icon": "menu-icon tf-icons ti ti-smart-home"
+    },
+    {
+      "name": "Ronde",
+      "icon": "menu-icon tf-icons ti ti-route",
+      "slug": "app-ronde",
+      "submenu": [
+        { "url": "/sie/plannings-ronde", "name": "Plannings de ronde", "slug": "sie.plannings-ronde.index" },
+        { "url": "/sie/pointcontroles", "name": "Points de contrôle", "slug": "sie.pointcontroles.index" },
+        { "url": "/sie/rondes", "name": "Rondes", "slug": "sie.rondes.index" }
+      ]
+    },
+    {
+      "name": "Supervision",
+      "icon": "menu-icon tf-icons ti ti-shield-check",
+      "slug": "app-supervision",
+      "submenu": [
+        { "url": "/superviseur/pointcontroles", "name": "Points de contrôle", "slug": "superviseur.pointcontroles.index" },
+        { "url": "/supervision/visites", "name": "Visites de sites", "slug": "supervision.visites.index" }
+      ]
+    }
+  ]
+}

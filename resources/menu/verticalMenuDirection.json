@@ -1,0 +1,19 @@
+{
+  "menu": [
+    {
+      "url": "/dashboard",
+      "name": "Tableau de bord",
+      "slug": "dashboard",
+      "icon": "menu-icon tf-icons ti ti-smart-home"
+    },
+    {
+      "menuHeader": "Vue d'ensemble"
+    },
+    { "url": "/paie/dashboard", "name": "Paie", "slug": "paie.dashboard", "icon": "menu-icon tf-icons ti ti-cash" },
+    { "url": "/sav", "name": "SAV", "slug": "sav.dashboard", "icon": "menu-icon tf-icons ti ti-headset" },
+    { "url": "/immobilisations/dashboard", "name": "Immobilisations", "slug": "immobilisations.dashboard", "icon": "menu-icon tf-icons ti ti-building-warehouse" },
+    { "url": "/employes", "name": "Employés", "slug": "employes.index", "icon": "menu-icon tf-icons ti ti-users" },
+    { "url": "/sie/rondes", "name": "Rondes", "slug": "sie.rondes.index", "icon": "menu-icon tf-icons ti ti-route" },
+    { "url": "/supervision/visites", "name": "Supervision", "slug": "supervision.visites.index", "icon": "menu-icon tf-icons ti ti-shield-check" }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "menu": [
+    {
+      "url": "/portail/dashboard",
+      "name": "Tableau de bord",
+      "slug": "portail.dashboard",
+      "icon": "menu-icon tf-icons ti ti-smart-home"
+    },
+    {
+      "url": "/portail/sites",
+      "name": "Mes sites",
+      "slug": "portail.sites.index",
+      "icon": "menu-icon tf-icons ti ti-building"
+    },
+    {
+      "url": "/portail/parc",
+      "name": "Mon parc",
+      "slug": "portail.parc.index",
+      "icon": "menu-icon tf-icons ti ti-devices"
+    },
+    {
+      "url": "/portail/rondes",
+      "name": "Rondes",
+      "slug": "portail.rondes.index",
+      "icon": "menu-icon tf-icons ti ti-shield-check"
+    },
+    {
+      "url": "/portail/agents",
+      "name": "Agents",
+      "slug": "portail.agents.index",
+      "icon": "menu-icon tf-icons ti ti-users"
+    },
+    {
+      "url": "/portail/support",
+      "name": "Support",
+      "slug": "portail.support",
+      "icon": "menu-icon tf-icons ti ti-help-circle"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "menu": [
+    {
+      "url": "/dashboard",
+      "name": "Tableau de bord",
+      "slug": "dashboard",
+      "icon": "menu-icon tf-icons ti ti-smart-home"
+    },
+    {
+      "name": "Employé",
+      "icon": "menu-icon tf-icons ti ti-users",
+      "slug": "app-employe",
+      "submenu": [
+        { "url": "/employes", "name": "Liste", "slug": "employes.index" },
+        { "url": "/employes/create", "name": "Ajouter", "slug": "employes.create" },
+        { "url": "/employes/archived", "name": "Archives", "slug": "employes.archived" }
+      ]
+    },
+    {
+      "url": "/departements",
+      "name": "Départements",
+      "slug": "departements.index",
+      "icon": "menu-icon tf-icons ti ti-sitemap"
+    },
+    {
+      "name": "Contrat",
+      "icon": "menu-icon tf-icons ti ti-file",
+      "slug": "app-contrat",
+      "submenu": [
+        { "url": "/contrats", "name": "Liste", "slug": "contrats.index" },
+        { "url": "/contrats/create", "name": "Ajouter", "slug": "contrats.create" }
+      ]
+    },
+    {
+      "name": "Planning",
+      "icon": "menu-icon tf-icons ti ti-calendar",
+      "slug": "app-planning",
+      "submenu": [
+        { "url": "/horaires", "name": "Horaires", "slug": "horaires.index" },
+        { "url": "/plannings", "name": "Plannings", "slug": "plannings.index" },
+        { "url": "/jours_ferier", "name": "Jours fériés", "slug": "jours_ferier.index" }
+      ]
+    },
+    {
+      "name": "Congés & Absences",
+      "icon": "menu-icon tf-icons ti ti-calendar-off",
+      "slug": "app-conges-absences",
+      "submenu": [
+        { "url": "/absences-admin", "name": "Absences", "slug": "absences-admin.index" },
+        { "url": "/conge/soldes", "name": "Soldes de congés", "slug": "conge.soldes.index" }
+      ]
+    },
+    {
+      "url": "/demandes-explications",
+      "name": "Demandes d'explication",
+      "slug": "demandes-explications.index",
+      "icon": "menu-icon tf-icons ti ti-file-description"
+    },
+    {
+      "menuHeader": "Paie"
+    },
+    {
+      "name": "Paie",
+      "icon": "menu-icon tf-icons ti ti-cash",
+      "slug": "app-paie",
+      "submenu": [
+        { "url": "/paie/dashboard", "name": "Tableau de bord", "slug": "paie.dashboard" },
+        { "url": "/paie/variables", "name": "Variables de paie", "slug": "paie.variables.index" },
+        { "url": "/paie/bulletins", "name": "Bulletins", "slug": "paie.bulletins.index" },
+        { "url": "/paie/simulations", "name": "Simulations", "slug": "paie.simulations.index" },
+        { "url": "/paie/elements-paie", "name": "Éléments de paie", "slug": "paie.elements-paie.index" },
+        { "url": "/paie/baremes-fiscaux", "name": "Barèmes fiscaux", "slug": "paie.baremes-fiscaux.index" }
+      ]
+    }
+  ]
+}
