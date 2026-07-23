@@ -67,6 +67,10 @@ class PermissionSeeder extends Seeder
             'sav-parc-view', 'sav-parc-create', 'sav-parc-edit', 'sav-parc-delete',
             'sav-maintenance-view', 'sav-maintenance-create', 'sav-maintenance-edit', 'sav-maintenance-delete',
             'sav-intervention-view', 'sav-intervention-create', 'sav-intervention-edit',
+
+            // IT
+            'it-dashboard-view',
+            'portail-user-view', 'portail-user-create', 'portail-user-update', 'portail-user-delete', 'portail-user-reset-password',
         ];
 
         foreach (array_unique($permissions) as $name) {

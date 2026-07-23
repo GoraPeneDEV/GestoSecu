@@ -449,4 +449,20 @@ Route::middleware(['auth'])->group(function () {
         Route::put('visites/{visite}', [App\Http\Controllers\SupervisionController::class, 'update'])->name('visites.update');
         Route::delete('visites/{visite}', [App\Http\Controllers\SupervisionController::class, 'destroy'])->name('visites.destroy');
     });
+
+    // ===========================
+    // IT
+    // ===========================
+    Route::prefix('it')->name('it.')->group(function () {
+        Route::get('/dashboard', [App\Http\Controllers\It\DashboardController::class, 'index'])->name('dashboard');
+
+        Route::prefix('client-users')->name('client-users.')->group(function () {
+            Route::get('/', [App\Http\Controllers\It\ClientUserController::class, 'index'])->name('index');
+            Route::post('/', [App\Http\Controllers\It\ClientUserController::class, 'store'])->name('store');
+            Route::get('/{clientUser}/edit', [App\Http\Controllers\It\ClientUserController::class, 'edit'])->name('edit');
+            Route::put('/{clientUser}', [App\Http\Controllers\It\ClientUserController::class, 'update'])->name('update');
+            Route::delete('/{clientUser}', [App\Http\Controllers\It\ClientUserController::class, 'destroy'])->name('destroy');
+            Route::post('/{clientUser}/reset-password', [App\Http\Controllers\It\ClientUserController::class, 'resetPassword'])->name('reset-password');
+        });
+    });
 });

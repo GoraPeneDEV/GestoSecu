@@ -1,10 +1,16 @@
 {
   "menu": [
     {
-      "url": "/dashboard",
+      "url": "/it/dashboard",
       "name": "Tableau de bord",
-      "slug": "dashboard",
+      "slug": "it.dashboard",
       "icon": "menu-icon tf-icons ti ti-smart-home"
+    },
+    {
+      "url": "/it/client-users",
+      "name": "Comptes portail client",
+      "slug": "it.client-users.index",
+      "icon": "menu-icon tf-icons ti ti-users"
     }
   ]
 }
