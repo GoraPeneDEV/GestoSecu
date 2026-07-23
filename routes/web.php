@@ -479,6 +479,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/achats-logistique/dashboard', [App\Http\Controllers\AchatsLogistique\DashboardController::class, 'index'])->name('achats-logistique.dashboard');
 
     // ===========================
+    // DIRECTION
+    // ===========================
+    Route::get('/direction/dashboard', [App\Http\Controllers\Direction\DashboardController::class, 'index'])->name('direction.dashboard');
+
+    // ===========================
     // IT
     // ===========================
     Route::prefix('it')->name('it.')->group(function () {

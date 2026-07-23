@@ -1,19 +1,24 @@
 {
   "menu": [
     {
-      "url": "/dashboard",
-      "name": "Tableau de bord",
-      "slug": "dashboard",
+      "url": "/direction/dashboard",
+      "name": "Vue 360°",
+      "slug": "direction.dashboard",
       "icon": "menu-icon tf-icons ti ti-smart-home"
     },
     {
-      "menuHeader": "Vue d'ensemble"
+      "menuHeader": "Départements"
     },
+    { "url": "/rh/dashboard", "name": "RH", "slug": "rh.dashboard", "icon": "menu-icon tf-icons ti ti-users" },
     { "url": "/paie/dashboard", "name": "Paie", "slug": "paie.dashboard", "icon": "menu-icon tf-icons ti ti-cash" },
+    { "url": "/comptabilite/dashboard", "name": "Comptabilité", "slug": "comptabilite.dashboard", "icon": "menu-icon tf-icons ti ti-report-money" },
     { "url": "/sav", "name": "SAV", "slug": "sav.dashboard", "icon": "menu-icon tf-icons ti ti-headset" },
+    { "url": "/achats-logistique/dashboard", "name": "Achats & Logistique", "slug": "achats-logistique.dashboard", "icon": "menu-icon tf-icons ti ti-truck-delivery" },
     { "url": "/immobilisations/dashboard", "name": "Immobilisations", "slug": "immobilisations.dashboard", "icon": "menu-icon tf-icons ti ti-building-warehouse" },
-    { "url": "/employes", "name": "Employés", "slug": "employes.index", "icon": "menu-icon tf-icons ti ti-users" },
+    { "url": "/sie/dashboard", "name": "SIE", "slug": "sie.dashboard", "icon": "menu-icon tf-icons ti ti-shield-check" },
     { "url": "/sie/rondes", "name": "Rondes", "slug": "sie.rondes.index", "icon": "menu-icon tf-icons ti ti-route" },
-    { "url": "/supervision/visites", "name": "Supervision", "slug": "supervision.visites.index", "icon": "menu-icon tf-icons ti ti-shield-check" }
+    { "url": "/supervision/visites", "name": "Supervision", "slug": "supervision.visites.index", "icon": "menu-icon tf-icons ti ti-shield-check" },
+    { "url": "/it/dashboard", "name": "IT", "slug": "it.dashboard", "icon": "menu-icon tf-icons ti ti-device-desktop" },
+    { "url": "/employes", "name": "Employés", "slug": "employes.index", "icon": "menu-icon tf-icons ti ti-users-group" }
   ]
 }

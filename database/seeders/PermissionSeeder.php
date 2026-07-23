@@ -71,6 +71,9 @@ class PermissionSeeder extends Seeder
             // IT
             'it-dashboard-view',
             'portail-user-view', 'portail-user-create', 'portail-user-update', 'portail-user-delete', 'portail-user-reset-password',
+
+            // Direction
+            'direction-dashboard-view',
         ];
 
         foreach (array_unique($permissions) as $name) {
