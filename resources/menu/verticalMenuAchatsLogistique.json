@@ -1,9 +1,9 @@
 {
   "menu": [
     {
-      "url": "/dashboard",
+      "url": "/achats-logistique/dashboard",
       "name": "Tableau de bord",
-      "slug": "dashboard",
+      "slug": "achats-logistique.dashboard",
       "icon": "menu-icon tf-icons ti ti-smart-home"
     },
     {

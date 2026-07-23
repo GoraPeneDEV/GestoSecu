@@ -460,6 +460,11 @@ Route::middleware(['auth'])->group(function () {
     });
 
     // ===========================
+    // ACHATS & LOGISTIQUE
+    // ===========================
+    Route::get('/achats-logistique/dashboard', [App\Http\Controllers\AchatsLogistique\DashboardController::class, 'index'])->name('achats-logistique.dashboard');
+
+    // ===========================
     // IT
     // ===========================
     Route::prefix('it')->name('it.')->group(function () {
