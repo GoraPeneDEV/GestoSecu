@@ -1,9 +1,9 @@
 {
   "menu": [
     {
-      "url": "/dashboard",
+      "url": "/sie/dashboard",
       "name": "Tableau de bord",
-      "slug": "dashboard",
+      "slug": "sie.dashboard",
       "icon": "menu-icon tf-icons ti ti-smart-home"
     },
     {
@@ -13,7 +13,8 @@
       "submenu": [
         { "url": "/sie/plannings-ronde", "name": "Plannings de ronde", "slug": "sie.plannings-ronde.index" },
         { "url": "/sie/pointcontroles", "name": "Points de contrôle", "slug": "sie.pointcontroles.index" },
-        { "url": "/sie/rondes", "name": "Rondes", "slug": "sie.rondes.index" }
+        { "url": "/sie/rondes", "name": "Rondes", "slug": "sie.rondes.index" },
+        { "url": "/sie/rapport", "name": "Rapport par période", "slug": "sie.rapport" }
       ]
     },
     {

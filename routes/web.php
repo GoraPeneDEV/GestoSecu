@@ -376,6 +376,15 @@ Route::middleware(['auth'])->group(function () {
     });
 
     // ===========================
+    // SIE — Tableau de bord & rapports
+    // ===========================
+    Route::prefix('sie')->name('sie.')->group(function () {
+        Route::get('/dashboard', [App\Http\Controllers\sie\DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/rapport', [App\Http\Controllers\sie\DashboardController::class, 'rapport'])->name('rapport');
+        Route::get('/rapport/pdf', [App\Http\Controllers\sie\DashboardController::class, 'rapportPdf'])->name('rapport.pdf');
+    });
+
+    // ===========================
     // RONDE (AGENT)
     // ===========================
     Route::prefix('sie/plannings-ronde')->name('sie.plannings-ronde.')->group(function () {
