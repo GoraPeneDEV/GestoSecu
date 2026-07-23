@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Plannings de ronde')
 
@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="mb-0">Plannings de ronde</h3>
         <a href="{{ route('sie.plannings-ronde.create') }}" class="btn btn-primary">
-            <i class="bi bi-plus-lg"></i> Nouveau planning
+            <i class="ti ti-plus-lg"></i> Nouveau planning
         </a>
     </div>
 
@@ -106,8 +106,8 @@ $(function () {
             { data: 'points_count', name: 'points_count', orderable: false, searchable: false },
             {
                 data: null, orderable: false, searchable: false,
-                render: (d) => `<a href="/sie/plannings-ronde/${d.id}" class="btn btn-sm btn-info me-1"><i class="bi bi-eye"></i></a>
-                    <a href="/sie/plannings-ronde/${d.id}/edit" class="btn btn-sm btn-warning"><i class="bi bi-pencil"></i></a>`
+                render: (d) => `<a href="/sie/plannings-ronde/${d.id}" class="btn btn-sm btn-info me-1"><i class="ti ti-eye"></i></a>
+                    <a href="/sie/plannings-ronde/${d.id}/edit" class="btn btn-sm btn-warning"><i class="ti ti-pencil"></i></a>`
             },
         ],
         language: { url: 'https://cdn.datatables.net/plug-ins/1.13.8/i18n/fr-FR.json' },

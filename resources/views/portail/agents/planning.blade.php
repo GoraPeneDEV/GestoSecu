@@ -1,10 +1,10 @@
-@extends('portail.layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Planning - ' . $agent->prenom . ' ' . $agent->nom)
 
 @section('content')
     <a href="{{ route('portail.agents.show', $agent->id) }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour à l'agent
+        <i class="ti ti-arrow-left"></i> Retour à l'agent
     </a>
 
     <h3 class="mb-4">Planning de {{ $agent->prenom }} {{ $agent->nom }}</h3>

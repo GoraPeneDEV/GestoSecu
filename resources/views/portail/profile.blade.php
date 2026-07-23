@@ -1,4 +1,4 @@
-@extends('portail.layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Mon profil')
 

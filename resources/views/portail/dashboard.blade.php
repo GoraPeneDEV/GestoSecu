@@ -1,4 +1,4 @@
-@extends('portail.layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Tableau de bord')
 
@@ -9,7 +9,7 @@
         <div class="col-md-3 col-6">
             <div class="card text-center h-100">
                 <div class="card-body">
-                    <i class="bi bi-building fs-2 text-primary"></i>
+                    <i class="ti ti-building fs-2 text-primary"></i>
                     <h3 class="mt-2 mb-0">{{ $stats['totalSites'] }}</h3>
                     <small class="text-muted">Sites</small>
                 </div>
@@ -18,7 +18,7 @@
         <div class="col-md-3 col-6">
             <div class="card text-center h-100">
                 <div class="card-body">
-                    <i class="bi bi-check-circle fs-2 text-success"></i>
+                    <i class="ti ti-check-circle fs-2 text-success"></i>
                     <h3 class="mt-2 mb-0">{{ $stats['sitesActifs'] }}</h3>
                     <small class="text-muted">Sites actifs</small>
                 </div>
@@ -27,7 +27,7 @@
         <div class="col-md-3 col-6">
             <div class="card text-center h-100">
                 <div class="card-body">
-                    <i class="bi bi-tools fs-2 text-warning"></i>
+                    <i class="ti ti-tools fs-2 text-warning"></i>
                     <h3 class="mt-2 mb-0">{{ $stats['totalEquipements'] }}</h3>
                     <small class="text-muted">Équipements</small>
                 </div>
@@ -36,7 +36,7 @@
         <div class="col-md-3 col-6">
             <div class="card text-center h-100">
                 <div class="card-body">
-                    <i class="bi bi-exclamation-triangle fs-2 text-danger"></i>
+                    <i class="ti ti-exclamation-triangle fs-2 text-danger"></i>
                     <h3 class="mt-2 mb-0">{{ $stats['equipementsMaintenance'] + $stats['equipementsHS'] }}</h3>
                     <small class="text-muted">Équipements à surveiller</small>
                 </div>

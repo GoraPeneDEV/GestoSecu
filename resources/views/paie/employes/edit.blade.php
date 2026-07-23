@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Données de paie - ' . $employe->prenom . ' ' . $employe->nom)
 
 @section('content')
     <a href="{{ route('employes.show', $employe->id) }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour à l'employé
+        <i class="ti ti-arrow-left"></i> Retour à l'employé
     </a>
 
     <h3 class="mb-4">Données de paie — {{ $employe->prenom }} {{ $employe->nom }}</h3>

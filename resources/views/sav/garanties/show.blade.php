@@ -1,22 +1,22 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Garantie — ' . ($garantie->client->nomClient ?? ''))
 
 @section('content')
     <a href="{{ route('sav.garanties.index') }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour
+        <i class="ti ti-arrow-left"></i> Retour
     </a>
 
     <div class="d-flex justify-content-between align-items-start mb-4">
         <h3 class="mb-0">Garantie — {{ $garantie->client->nomClient ?? '' }}</h3>
         <div>
             <a href="{{ route('sav.garanties.edit', $garantie->id) }}" class="btn btn-warning btn-sm">
-                <i class="bi bi-pencil"></i> Modifier
+                <i class="ti ti-pencil"></i> Modifier
             </a>
             <form method="POST" action="{{ route('sav.garanties.destroy', $garantie->id) }}" class="d-inline" onsubmit="return confirm('Supprimer cette garantie ?');">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i> Supprimer</button>
+                <button type="submit" class="btn btn-outline-danger btn-sm"><i class="ti ti-trash"></i> Supprimer</button>
             </form>
         </div>
     </div>

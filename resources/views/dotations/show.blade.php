@@ -1,16 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Dotation ' . $dotation->reference)
 
 @section('content')
     <a href="{{ route('dotations.index') }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour
+        <i class="ti ti-arrow-left"></i> Retour
     </a>
 
     <div class="d-flex justify-content-between align-items-start mb-4">
         <h3 class="mb-0">{{ $dotation->reference }}</h3>
         <a href="{{ route('dotations.edit', $dotation->id) }}" class="btn btn-warning btn-sm">
-            <i class="bi bi-pencil"></i> Modifier
+            <i class="ti ti-pencil"></i> Modifier
         </a>
     </div>
 

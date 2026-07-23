@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Nouvelle dotation')
 
@@ -69,7 +69,7 @@
                 <h5 class="mt-4">Articles</h5>
                 <div id="articlesRows"></div>
                 <button type="button" class="btn btn-sm btn-outline-primary" onclick="addArticleRow()">
-                    <i class="bi bi-plus-lg"></i> Ajouter un article
+                    <i class="ti ti-plus-lg"></i> Ajouter un article
                 </button>
 
                 <div class="mt-4">
@@ -102,7 +102,7 @@ function addArticleRow() {
             <input type="number" name="articles[${rowIndex}][quantite]" class="form-control form-control-sm" min="1" value="1" required>
         </div>
         <div class="col-md-1">
-            <button type="button" class="btn btn-sm btn-outline-danger" onclick="this.closest('.article-row').remove()"><i class="bi bi-x"></i></button>
+            <button type="button" class="btn btn-sm btn-outline-danger" onclick="this.closest('.article-row').remove()"><i class="ti ti-x"></i></button>
         </div>
     `;
     wrapper.appendChild(div);

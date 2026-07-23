@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Variables de paie')
 
@@ -61,7 +61,7 @@
                                     <button type="button" class="btn btn-sm btn-outline-primary btn-edit-variable"
                                         data-employe="{{ $employe->id }}" data-nom="{{ $employe->prenom }} {{ $employe->nom }}"
                                         data-variable='@json($variable)'>
-                                        <i class="bi bi-pencil"></i>
+                                        <i class="ti ti-pencil"></i>
                                     </button>
                                 </td>
                             </tr>

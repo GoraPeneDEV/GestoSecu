@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Validator;
 
 /**
  * "Mes demandes d'absence" et validation hiérarchique — équivalent mobile de
- * App\Http\Controllers\DemandeAbsenceAdminController (guard web). Réplique
+ * App\Http\Controllers\Rh\DemandeAbsenceAdminController (guard web). Réplique
  * volontairement la logique métier du contrôleur web (autorisations hybrides
  * permission/département/propriété, calcul des jours ouvrables,
  * notifications) plutôt que de la réinventer.

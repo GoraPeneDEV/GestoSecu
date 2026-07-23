@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Interactions clients')
 
@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="mb-0">Interactions clients</h3>
         <a href="{{ route('sav.interactions.create') }}" class="btn btn-primary">
-            <i class="bi bi-plus-lg"></i> Nouvelle interaction
+            <i class="ti ti-plus-lg"></i> Nouvelle interaction
         </a>
     </div>
 

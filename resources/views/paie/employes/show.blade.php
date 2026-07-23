@@ -1,16 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Paie - ' . $employe->prenom . ' ' . $employe->nom)
 
 @section('content')
     <a href="{{ route('employes.show', $employe->id) }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour à l'employé
+        <i class="ti ti-arrow-left"></i> Retour à l'employé
     </a>
 
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="mb-0">Données de paie — {{ $employe->prenom }} {{ $employe->nom }}</h3>
         <a href="{{ route('paie.employes.edit', $employe->id) }}" class="btn btn-warning">
-            <i class="bi bi-pencil"></i> Modifier
+            <i class="ti ti-pencil"></i> Modifier
         </a>
     </div>
 

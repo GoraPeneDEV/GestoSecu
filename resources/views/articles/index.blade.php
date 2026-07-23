@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Articles')
 
@@ -7,10 +7,10 @@
         <h3 class="mb-0">Articles</h3>
         <div>
             <a href="{{ route('articles.inventaire') }}" class="btn btn-outline-secondary">
-                <i class="bi bi-clipboard-data"></i> Rapport d'inventaire
+                <i class="ti ti-clipboard-data"></i> Rapport d'inventaire
             </a>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalArticle" onclick="newArticle()">
-                <i class="bi bi-plus-lg"></i> Nouvel article
+                <i class="ti ti-plus-lg"></i> Nouvel article
             </button>
         </div>
     </div>

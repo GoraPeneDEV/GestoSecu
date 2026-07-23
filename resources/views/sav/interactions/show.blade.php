@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Interaction — ' . $interaction->sujet)
 
 @section('content')
     <a href="{{ route('sav.interactions.index') }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour
+        <i class="ti ti-arrow-left"></i> Retour
     </a>
 
     <div class="d-flex justify-content-between align-items-start mb-4">

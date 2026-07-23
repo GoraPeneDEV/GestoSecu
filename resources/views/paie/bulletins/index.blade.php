@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Bulletins de paie')
 
@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="mb-0">Bulletins de paie</h3>
         <button type="button" class="btn btn-primary" id="btnGenerateBatch">
-            <i class="bi bi-magic"></i> Générer les bulletins du mois
+            <i class="ti ti-magic"></i> Générer les bulletins du mois
         </button>
     </div>
 
@@ -67,14 +67,14 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('paie.bulletins.show', $bulletin->id) }}" class="btn btn-sm btn-outline-primary">
-                                        <i class="bi bi-eye"></i>
+                                        <i class="ti ti-eye"></i>
                                     </a>
                                     @if ($bulletin->statut === 'brouillon')
                                         <button type="button" class="btn btn-sm btn-outline-success btn-validate-bulletin" data-id="{{ $bulletin->id }}">
-                                            <i class="bi bi-check-lg"></i>
+                                            <i class="ti ti-check-lg"></i>
                                         </button>
                                         <button type="button" class="btn btn-sm btn-outline-danger btn-delete-bulletin" data-id="{{ $bulletin->id }}">
-                                            <i class="bi bi-trash"></i>
+                                            <i class="ti ti-trash"></i>
                                         </button>
                                     @endif
                                 </td>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Scan — ' . $immobilisation->code_interne)
 
@@ -20,7 +20,7 @@
                 <dt class="col-5">Valeur d'acquisition</dt><dd class="col-7">{{ number_format($immobilisation->valeur_acquisition, 0, ',', ' ') }} FCFA</dd>
             </dl>
             <a href="{{ route('immobilisations.biens.show', $immobilisation->id) }}" class="btn btn-primary btn-sm mt-3">
-                <i class="bi bi-box-arrow-up-right"></i> Voir la fiche complète
+                <i class="ti ti-box-arrow-up-right"></i> Voir la fiche complète
             </a>
         </div>
     </div>

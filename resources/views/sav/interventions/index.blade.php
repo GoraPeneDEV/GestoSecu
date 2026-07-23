@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Interventions')
 
@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="mb-0">Interventions</h3>
         <a href="{{ route('sav.interventions.create') }}" class="btn btn-primary">
-            <i class="bi bi-plus-lg"></i> Nouvelle intervention
+            <i class="ti ti-plus-lg"></i> Nouvelle intervention
         </a>
     </div>
 
@@ -39,9 +39,9 @@
                                 <td>{{ $intervention->date_intervention?->format('d/m/Y') }}</td>
                                 <td><span class="badge bg-success">{{ ucfirst($intervention->statut) }}</span></td>
                                 <td>
-                                    <a href="{{ route('sav.interventions.show', $intervention->id) }}" class="btn btn-sm btn-info"><i class="bi bi-eye"></i></a>
-                                    <a href="{{ route('sav.interventions.edit', $intervention->id) }}" class="btn btn-sm btn-warning"><i class="bi bi-pencil"></i></a>
-                                    <a href="{{ route('sav.interventions.pdf', $intervention->id) }}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-file-pdf"></i></a>
+                                    <a href="{{ route('sav.interventions.show', $intervention->id) }}" class="btn btn-sm btn-info"><i class="ti ti-eye"></i></a>
+                                    <a href="{{ route('sav.interventions.edit', $intervention->id) }}" class="btn btn-sm btn-warning"><i class="ti ti-pencil"></i></a>
+                                    <a href="{{ route('sav.interventions.pdf', $intervention->id) }}" class="btn btn-sm btn-outline-secondary"><i class="ti ti-file-pdf"></i></a>
                                 </td>
                             </tr>
                         @empty

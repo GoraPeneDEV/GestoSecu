@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Maintenance — ' . ($maintenance->site->nom_site ?? ''))
 
 @section('content')
     <a href="{{ route('sav.maintenances.index') }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour
+        <i class="ti ti-arrow-left"></i> Retour
     </a>
 
     <h3 class="mb-4">Maintenance — {{ $maintenance->site->nom_site ?? '' }}</h3>
@@ -33,7 +33,7 @@
                     @if ($maintenance->interventions->isEmpty())
                         <p class="text-muted mb-0">Aucune intervention enregistrée.</p>
                         <a href="{{ route('sav.interventions.create', ['maintenance_id' => $maintenance->id]) }}" class="btn btn-sm btn-success mt-2">
-                            <i class="bi bi-clipboard-check"></i> Créer le rapport d'intervention
+                            <i class="ti ti-clipboard-check"></i> Créer le rapport d'intervention
                         </a>
                     @else
                         <ul class="list-group list-group-flush">

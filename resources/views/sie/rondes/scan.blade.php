@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Scan de ronde')
 
 @section('content')
     <a href="{{ route('sie.rondes.show', $ronde->id) }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour
+        <i class="ti ti-arrow-left"></i> Retour
     </a>
 
     <h3 class="mb-4">Scan — {{ $ronde->planningRonde->nom ?? '' }}</h3>

@@ -1,4 +1,4 @@
-@extends('portail.layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Mes sites')
 
@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="mb-0">Mes sites</h3>
         <a href="{{ route('portail.sites.export-csv') }}" class="btn btn-outline-secondary btn-sm">
-            <i class="bi bi-download"></i> Exporter en CSV
+            <i class="ti ti-download"></i> Exporter en CSV
         </a>
     </div>
 

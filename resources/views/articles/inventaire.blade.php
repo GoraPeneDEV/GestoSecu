@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', "Rapport d'inventaire")
 
 @section('content')
     <a href="{{ route('articles.index') }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour
+        <i class="ti ti-arrow-left"></i> Retour
     </a>
 
     <h3 class="mb-4">Rapport d'inventaire</h3>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-auto">
                     <button type="button" class="btn btn-sm btn-outline-secondary" onclick="exporterPdf()">
-                        <i class="bi bi-file-pdf"></i> Exporter PDF
+                        <i class="ti ti-file-pdf"></i> Exporter PDF
                     </button>
                 </div>
             </div>

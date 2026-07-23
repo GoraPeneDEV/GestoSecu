@@ -1,20 +1,20 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Intervention ' . $intervention->numero_intervention)
 
 @section('content')
     <a href="{{ route('sav.interventions.index') }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour
+        <i class="ti ti-arrow-left"></i> Retour
     </a>
 
     <div class="d-flex justify-content-between align-items-start mb-4">
         <h3 class="mb-0">{{ $intervention->numero_intervention }} — {{ $intervention->site->nom_site ?? '' }}</h3>
         <div>
             <a href="{{ route('sav.interventions.edit', $intervention->id) }}" class="btn btn-warning btn-sm">
-                <i class="bi bi-pencil"></i> Modifier
+                <i class="ti ti-pencil"></i> Modifier
             </a>
             <a href="{{ route('sav.interventions.pdf', $intervention->id) }}" class="btn btn-outline-secondary btn-sm">
-                <i class="bi bi-file-pdf"></i> PDF
+                <i class="ti ti-file-pdf"></i> PDF
             </a>
         </div>
     </div>

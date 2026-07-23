@@ -18,7 +18,12 @@ class DatabaseSeeder extends Seeder
 
         $superAdmin = Role::firstOrCreate(['name' => 'super_admin', 'guard_name' => 'web']);
 
-        $departementRh = Departement::firstOrCreate(['nom' => 'RH']);
+        // Départements officiels de GestoSecu (pilote le menu dynamique par département, voir LoadMenuMiddleware)
+        foreach (['RH', 'Direction', 'IT', 'SIE', 'Achats & Logistique', 'Comptabilité'] as $nomDepartement) {
+            Departement::firstOrCreate(['nom' => $nomDepartement]);
+        }
+
+        $departementRh = Departement::where('nom', 'RH')->first();
 
         $admin = User::firstOrCreate(
             ['email' => 'admin@gestosecu.local'],
@@ -38,5 +43,7 @@ class DatabaseSeeder extends Seeder
 
         $clientRole = Role::firstOrCreate(['name' => 'client', 'guard_name' => 'portail']);
         $clientRole->syncPermissions(['portail-site-view', 'portail-agent-view', 'portail-ronde-view']);
+
+        $this->call(DepartementUsersSeeder::class);
     }
 }

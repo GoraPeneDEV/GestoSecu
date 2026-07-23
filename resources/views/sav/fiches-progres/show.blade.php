@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Fiche ' . $ficheProgres->numero_fiche)
 
 @section('content')
     <a href="{{ route('sav.fiches-progres.index') }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour
+        <i class="ti ti-arrow-left"></i> Retour
     </a>
 
     <div class="d-flex justify-content-between align-items-start mb-4">
@@ -67,7 +67,7 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     Plan d'actions
                     <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalAction">
-                        <i class="bi bi-plus-lg"></i> Ajouter une action
+                        <i class="ti ti-plus-lg"></i> Ajouter une action
                     </button>
                 </div>
                 <div class="card-body">
@@ -132,7 +132,7 @@
         <div class="card-header d-flex justify-content-between align-items-center">
             Pièces jointes
             <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modalPiece">
-                <i class="bi bi-paperclip"></i> Ajouter
+                <i class="ti ti-paperclip"></i> Ajouter
             </button>
         </div>
         <div class="card-body">

@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'QR Code — ' . $bien->code_interne)
 
 @section('content')
     <a href="{{ route('immobilisations.biens.show', $bien->id) }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour
+        <i class="ti ti-arrow-left"></i> Retour
     </a>
 
     <div class="card mx-auto" style="max-width: 400px;">
@@ -18,7 +18,7 @@
             <div class="my-3">{!! $qrSvg !!}</div>
             <p class="small text-muted">{{ $url }}</p>
             <button type="button" class="btn btn-sm btn-outline-secondary" onclick="window.print()">
-                <i class="bi bi-printer"></i> Imprimer
+                <i class="ti ti-printer"></i> Imprimer
             </button>
         </div>
     </div>

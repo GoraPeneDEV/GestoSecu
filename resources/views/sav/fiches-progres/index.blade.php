@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Fiches de progrès')
 
@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="mb-0">Fiches de progrès</h3>
         <a href="{{ route('sav.fiches-progres.create') }}" class="btn btn-primary">
-            <i class="bi bi-plus-lg"></i> Nouvelle fiche
+            <i class="ti ti-plus-lg"></i> Nouvelle fiche
         </a>
     </div>
 

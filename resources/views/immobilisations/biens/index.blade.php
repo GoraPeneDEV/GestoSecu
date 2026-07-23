@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Immobilisations — Biens')
 
@@ -7,10 +7,10 @@
         <h3 class="mb-0">Biens immobilisés</h3>
         <div>
             <a href="{{ route('immobilisations.dashboard') }}" class="btn btn-outline-secondary">
-                <i class="bi bi-speedometer2"></i> Tableau de bord
+                <i class="ti ti-speedometer2"></i> Tableau de bord
             </a>
             <a href="{{ route('immobilisations.biens.create') }}" class="btn btn-primary">
-                <i class="bi bi-plus-lg"></i> Nouveau bien
+                <i class="ti ti-plus-lg"></i> Nouveau bien
             </a>
         </div>
     </div>

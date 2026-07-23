@@ -1,10 +1,10 @@
-@extends('portail.layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Équipement - ' . $asset->label)
 
 @section('content')
     <a href="{{ route('portail.parc.index') }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour au parc
+        <i class="ti ti-arrow-left"></i> Retour au parc
     </a>
 
     <h3 class="mb-4">{{ $asset->label }}</h3>

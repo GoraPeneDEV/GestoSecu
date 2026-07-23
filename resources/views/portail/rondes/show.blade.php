@@ -1,17 +1,17 @@
-@extends('portail.layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Ronde #' . $ronde->id)
 
 @section('content')
     <a href="{{ route('portail.rondes.index') }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour aux rondes
+        <i class="ti ti-arrow-left"></i> Retour aux rondes
     </a>
 
     <div class="d-flex justify-content-between align-items-start mb-4">
         <h3 class="mb-0">Ronde — {{ $ronde->planningRonde->nom ?? '-' }}</h3>
         @if ($ronde->scans->where('anomalie', true)->count() > 0)
             <a href="{{ route('portail.rondes.export-anomalies', $ronde->id) }}" class="btn btn-danger btn-sm">
-                <i class="bi bi-file-earmark-arrow-down"></i> Exporter les anomalies (PDF)
+                <i class="ti ti-file-earmark-arrow-down"></i> Exporter les anomalies (PDF)
             </a>
         @endif
     </div>

@@ -1,10 +1,10 @@
-@extends('portail.layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Site - ' . $site->nom_site)
 
 @section('content')
     <a href="{{ route('portail.sites.index') }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour aux sites
+        <i class="ti ti-arrow-left"></i> Retour aux sites
     </a>
 
     <h3 class="mb-4">{{ $site->nom_site }}</h3>

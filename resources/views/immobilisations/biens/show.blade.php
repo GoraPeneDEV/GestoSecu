@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', $bien->code_interne . ' — ' . $bien->designation)
 
 @section('content')
     <a href="{{ route('immobilisations.biens.index') }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour
+        <i class="ti ti-arrow-left"></i> Retour
     </a>
 
     @if (session('success'))
@@ -18,16 +18,16 @@
         <h3 class="mb-0">{{ $bien->code_interne }} — {{ $bien->designation }}</h3>
         <div>
             <a href="{{ route('immobilisations.biens.edit', $bien->id) }}" class="btn btn-warning btn-sm">
-                <i class="bi bi-pencil"></i> Modifier
+                <i class="ti ti-pencil"></i> Modifier
             </a>
             <a href="{{ route('immobilisations.biens.qrcode', $bien->id) }}" class="btn btn-outline-secondary btn-sm" target="_blank">
-                <i class="bi bi-qr-code"></i> QR Code
+                <i class="ti ti-qr-code"></i> QR Code
             </a>
             <a href="{{ route('immobilisations.biens.amortissement', $bien->id) }}" class="btn btn-outline-secondary btn-sm">
-                <i class="bi bi-graph-down"></i> Amortissement
+                <i class="ti ti-graph-down"></i> Amortissement
             </a>
             <a href="{{ route('immobilisations.biens.historique', $bien->id) }}" class="btn btn-outline-secondary btn-sm">
-                <i class="bi bi-clock-history"></i> Historique
+                <i class="ti ti-clock-history"></i> Historique
             </a>
         </div>
     </div>
@@ -57,14 +57,14 @@
                 <div class="card-body">
                     @if ($bien->statut !== 'affecte')
                         <button type="button" class="btn btn-sm btn-success mb-2" data-bs-toggle="modal" data-bs-target="#modalAffecter">
-                            <i class="bi bi-person-plus"></i> Affecter à un employé
+                            <i class="ti ti-person-plus"></i> Affecter à un employé
                         </button>
                     @else
                         <button type="button" class="btn btn-sm btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#modalTransferer">
-                            <i class="bi bi-arrow-left-right"></i> Transférer
+                            <i class="ti ti-arrow-left-right"></i> Transférer
                         </button>
                         <button type="button" class="btn btn-sm btn-outline-secondary mb-2" data-bs-toggle="modal" data-bs-target="#modalRetourner">
-                            <i class="bi bi-box-arrow-in-down"></i> Retourner en stock
+                            <i class="ti ti-box-arrow-in-down"></i> Retourner en stock
                         </button>
                     @endif
 

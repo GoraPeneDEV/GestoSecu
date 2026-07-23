@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Parc — ' . $client->nomClient)
 
 @section('content')
     <a href="{{ route('sav.parc.index') }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour
+        <i class="ti ti-arrow-left"></i> Retour
     </a>
 
     <h3 class="mb-4">Parc — {{ $client->nomClient }}</h3>
@@ -30,11 +30,11 @@
                                             <span class="badge {{ $badges[$asset->status] ?? 'bg-secondary' }}">{{ str_replace('_', ' ', ucfirst($asset->status)) }}</span>
                                         </td>
                                         <td>
-                                            <a href="{{ route('sav.parc.edit', $asset->id) }}" class="btn btn-sm btn-outline-warning"><i class="bi bi-pencil"></i></a>
+                                            <a href="{{ route('sav.parc.edit', $asset->id) }}" class="btn btn-sm btn-outline-warning"><i class="ti ti-pencil"></i></a>
                                             <form method="POST" action="{{ route('sav.parc.destroy', $asset->id) }}" class="d-inline" onsubmit="return confirm('Supprimer cet équipement ?');">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                                                <button type="submit" class="btn btn-sm btn-outline-danger"><i class="ti ti-trash"></i></button>
                                             </form>
                                         </td>
                                     </tr>

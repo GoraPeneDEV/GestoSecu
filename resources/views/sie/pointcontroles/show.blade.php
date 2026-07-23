@@ -1,20 +1,20 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', $pointControle->nom)
 
 @section('content')
     <a href="{{ route('sie.pointcontroles.index') }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour
+        <i class="ti ti-arrow-left"></i> Retour
     </a>
 
     <div class="d-flex justify-content-between align-items-start mb-4">
         <h3 class="mb-0">{{ $pointControle->nom }}</h3>
         <div>
             <a href="{{ route('sie.pointcontroles.edit', $pointControle->id) }}" class="btn btn-warning btn-sm">
-                <i class="bi bi-pencil"></i> Modifier
+                <i class="ti ti-pencil"></i> Modifier
             </a>
             <a href="{{ route('sie.pointcontroles.download-qr', $pointControle->id) }}" class="btn btn-outline-secondary btn-sm">
-                <i class="bi bi-download"></i> Télécharger le QR Code
+                <i class="ti ti-download"></i> Télécharger le QR Code
             </a>
         </div>
     </div>

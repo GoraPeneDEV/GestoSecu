@@ -1,15 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DepartementController;
-use App\Http\Controllers\JourFerierController;
-use App\Http\Controllers\SoldeCongeController;
-use App\Http\Controllers\DemandeExplicationController;
-use App\Http\Controllers\DemandeAbsenceAdminController;
-use App\Http\Controllers\EmployeController;
-use App\Http\Controllers\ContratEmployeController;
-use App\Http\Controllers\PlanningController;
-use App\Http\Controllers\HorairePlanningController;
+use App\Http\Controllers\Rh\DepartementController;
+use App\Http\Controllers\Rh\JourFerierController;
+use App\Http\Controllers\Rh\SoldeCongeController;
+use App\Http\Controllers\Rh\DemandeExplicationController;
+use App\Http\Controllers\Rh\DemandeAbsenceAdminController;
+use App\Http\Controllers\Rh\EmployeController;
+use App\Http\Controllers\Rh\ContratEmployeController;
+use App\Http\Controllers\Rh\PlanningController;
+use App\Http\Controllers\Rh\HorairePlanningController;
 use App\Http\Controllers\Paie\EmployePaieDataController;
 use App\Http\Controllers\Paie\VariablePaieController;
 use App\Http\Controllers\Paie\BulletinPaieController;

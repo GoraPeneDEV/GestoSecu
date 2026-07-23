@@ -60,11 +60,17 @@ $navbarDetached = ($navbarDetached ?? '');
 
                 <!-- User -->
                 @php
-                $user = Auth::user();
+                $isPortail = $isPortailClient ?? false;
+                $user = $isPortail ? Auth::guard('portail')->user() : Auth::user();
                 $prenom = trim($user->prenom ?? '');
                 $nom = trim($user->nom ?? '');
                 $fullName = trim("$prenom $nom") ?: ($user->email ?? 'Utilisateur');
                 $initials = strtoupper(substr($prenom, 0, 1) . substr($nom, 0, 1)) ?: strtoupper(substr($user->email ?? 'U', 0, 2));
+                $roleLabel = $isPortail
+                    ? ($user->client->nomClient ?? 'Client')
+                    : (Auth::check() && Auth::user()->roles->first() ? Auth::user()->roles->first()->name : 'Utilisateur');
+                $logoutRoute = $isPortail ? route('portail.logout') : route('logout');
+                $logoutFormId = $isPortail ? 'logout-form-portail' : 'logout-form';
                 @endphp
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                     <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);" data-bs-toggle="dropdown">
@@ -83,7 +89,7 @@ $navbarDetached = ($navbarDetached ?? '');
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="mb-0">{{ $fullName }}</h6>
-                                        <small class="text-muted">{{ Auth::check() && Auth::user()->roles->first() ? Auth::user()->roles->first()->name : 'Utilisateur' }}</small>
+                                        <small class="text-muted">{{ $roleLabel }}</small>
                                     </div>
                                 </div>
                             </a>
@@ -93,13 +99,13 @@ $navbarDetached = ($navbarDetached ?? '');
                         </li>
                         <li>
                             <div class="d-grid px-2 pt-2 pb-1">
-                                <a class="btn btn-sm btn-danger d-flex" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <a class="btn btn-sm btn-danger d-flex" href="{{ $logoutRoute }}" onclick="event.preventDefault(); document.getElementById('{{ $logoutFormId }}').submit();">
                                     <small class="align-middle">Déconnexion</small>
                                     <i class="ti ti-logout ms-2 ti-14px"></i>
                                 </a>
                             </div>
                         </li>
-                        <form method="POST" id="logout-form" action="{{ route('logout') }}">
+                        <form method="POST" id="{{ $logoutFormId }}" action="{{ $logoutRoute }}">
                             @csrf
                         </form>
                     </ul>

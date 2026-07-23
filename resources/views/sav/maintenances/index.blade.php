@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Maintenances')
 
@@ -7,10 +7,10 @@
         <h3 class="mb-0">Maintenances préventives</h3>
         <div>
             <a href="{{ route('sav.maintenances.export-pdf') }}" class="btn btn-outline-secondary">
-                <i class="bi bi-file-pdf"></i> Export PDF
+                <i class="ti ti-file-pdf"></i> Export PDF
             </a>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNew">
-                <i class="bi bi-plus-lg"></i> Planifier une maintenance
+                <i class="ti ti-plus-lg"></i> Planifier une maintenance
             </button>
         </div>
     </div>
@@ -58,9 +58,9 @@
                                 <td>{{ \Carbon\Carbon::parse($m->date_prevue)->format('d/m/Y') }}</td>
                                 <td><span class="badge bg-secondary">{{ ucfirst(str_replace('_', ' ', $m->status)) }}</span></td>
                                 <td>
-                                    <a href="{{ route('sav.maintenances.show', $m->id) }}" class="btn btn-sm btn-info"><i class="bi bi-eye"></i></a>
-                                    <button type="button" class="btn btn-sm btn-warning" onclick="editMaintenance({{ $m->id }}, '{{ $m->date_prevue }}', '{{ $m->status }}', '{{ addslashes($m->description) }}')"><i class="bi bi-pencil"></i></button>
-                                    <a href="{{ route('sav.interventions.create', ['maintenance_id' => $m->id]) }}" class="btn btn-sm btn-success"><i class="bi bi-clipboard-check"></i></a>
+                                    <a href="{{ route('sav.maintenances.show', $m->id) }}" class="btn btn-sm btn-info"><i class="ti ti-eye"></i></a>
+                                    <button type="button" class="btn btn-sm btn-warning" onclick="editMaintenance({{ $m->id }}, '{{ $m->date_prevue }}', '{{ $m->status }}', '{{ addslashes($m->description) }}')"><i class="ti ti-pencil"></i></button>
+                                    <a href="{{ route('sav.interventions.create', ['maintenance_id' => $m->id]) }}" class="btn btn-sm btn-success"><i class="ti ti-clipboard-check"></i></a>
                                 </td>
                             </tr>
                         @empty

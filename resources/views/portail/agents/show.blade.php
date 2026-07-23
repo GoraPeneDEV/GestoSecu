@@ -1,10 +1,10 @@
-@extends('portail.layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Agent - ' . $agent->prenom . ' ' . $agent->nom)
 
 @section('content')
     <a href="{{ route('portail.agents.index') }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour aux agents
+        <i class="ti ti-arrow-left"></i> Retour aux agents
     </a>
 
     <h3 class="mb-4">{{ $agent->prenom }} {{ $agent->nom }}</h3>
@@ -25,7 +25,7 @@
                         <dd class="col-7">{{ $agent->telephone ?? '-' }}</dd>
                     </dl>
                     <a href="{{ route('portail.agents.planning', $agent->id) }}" class="btn btn-sm btn-outline-primary mt-2">
-                        <i class="bi bi-calendar"></i> Voir le planning
+                        <i class="ti ti-calendar"></i> Voir le planning
                     </a>
                 </div>
             </div>
@@ -70,10 +70,10 @@
                                     <td>{{ $document->nom_fichier }}</td>
                                     <td>
                                         <a href="{{ route('portail.agents.documents.view', [$agent->id, $document->id]) }}" class="btn btn-sm btn-outline-primary" target="_blank">
-                                            <i class="bi bi-eye"></i>
+                                            <i class="ti ti-eye"></i>
                                         </a>
                                         <a href="{{ route('portail.agents.documents.download', [$agent->id, $document->id]) }}" class="btn btn-sm btn-outline-secondary">
-                                            <i class="bi bi-download"></i>
+                                            <i class="ti ti-download"></i>
                                         </a>
                                     </td>
                                 </tr>

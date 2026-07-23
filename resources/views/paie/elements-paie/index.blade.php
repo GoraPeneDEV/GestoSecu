@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Éléments de paie')
 
@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="mb-0">Éléments de paie</h3>
         <button type="button" class="btn btn-primary" id="btnNewElement">
-            <i class="bi bi-plus-lg"></i> Nouvel élément
+            <i class="ti ti-plus-lg"></i> Nouvel élément
         </button>
     </div>
 

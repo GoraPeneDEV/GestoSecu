@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Points de contrôle superviseur')
 
@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="mb-0">Points de contrôle superviseur</h3>
         <a href="{{ route('superviseur.pointcontroles.create') }}" class="btn btn-primary">
-            <i class="bi bi-plus-lg"></i> Nouveau point de contrôle
+            <i class="ti ti-plus-lg"></i> Nouveau point de contrôle
         </a>
     </div>
 
@@ -98,8 +98,8 @@ $(function () {
             { data: 'actif', name: 'actif', render: (d) => d ? '<span class="badge bg-success">Actif</span>' : '<span class="badge bg-secondary">Inactif</span>' },
             {
                 data: null, orderable: false, searchable: false,
-                render: (d) => `<a href="/superviseur/pointcontroles/${d.id}" class="btn btn-sm btn-info me-1"><i class="bi bi-eye"></i></a>
-                    <a href="/superviseur/pointcontroles/${d.id}/edit" class="btn btn-sm btn-warning"><i class="bi bi-pencil"></i></a>`
+                render: (d) => `<a href="/superviseur/pointcontroles/${d.id}" class="btn btn-sm btn-info me-1"><i class="ti ti-eye"></i></a>
+                    <a href="/superviseur/pointcontroles/${d.id}/edit" class="btn btn-sm btn-warning"><i class="ti ti-pencil"></i></a>`
             },
         ],
         language: { url: 'https://cdn.datatables.net/plug-ins/1.13.8/i18n/fr-FR.json' },

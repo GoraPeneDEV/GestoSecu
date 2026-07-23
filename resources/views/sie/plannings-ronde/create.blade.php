@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Nouveau planning de ronde')
 
@@ -107,7 +107,7 @@ function renderLists() {
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'btn btn-sm btn-outline-danger';
-        btn.innerHTML = '<i class="bi bi-x"></i>';
+        btn.innerHTML = '<i class="ti ti-x"></i>';
         btn.onclick = () => { selected = selected.filter(s => s.id !== p.id); renderLists(); };
         li.appendChild(btn);
         selectedList.appendChild(li);

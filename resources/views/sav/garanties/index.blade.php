@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Garanties')
 
@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="mb-0">Garanties</h3>
         <a href="{{ route('sav.garanties.create') }}" class="btn btn-primary">
-            <i class="bi bi-plus-lg"></i> Nouvelle garantie
+            <i class="ti ti-plus-lg"></i> Nouvelle garantie
         </a>
     </div>
 

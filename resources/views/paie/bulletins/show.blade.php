@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Bulletin ' . $bulletin->numero_bulletin)
 
 @section('content')
     <a href="{{ route('paie.bulletins.index') }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour
+        <i class="ti ti-arrow-left"></i> Retour
     </a>
 
     <h3 class="mb-4">Bulletin {{ $bulletin->numero_bulletin }} — {{ $bulletin->employe->prenom }} {{ $bulletin->employe->nom }}</h3>

@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', 'Ronde #' . $ronde->id)
 
 @section('content')
     <a href="{{ route('sie.rondes.index') }}" class="btn btn-sm btn-outline-secondary mb-3">
-        <i class="bi bi-arrow-left"></i> Retour
+        <i class="ti ti-arrow-left"></i> Retour
     </a>
 
     @if (session('success'))
@@ -19,15 +19,15 @@
         <div>
             @if ($ronde->statut === 'en_cours')
                 <a href="{{ route('sie.rondes.scan', $ronde->id) }}" class="btn btn-primary btn-sm">
-                    <i class="bi bi-qr-code-scan"></i> Scanner
+                    <i class="ti ti-qr-code-scan"></i> Scanner
                 </a>
                 <button type="button" class="btn btn-warning btn-sm" onclick="terminerRonde()">
-                    <i class="bi bi-check-square"></i> Terminer
+                    <i class="ti ti-check-square"></i> Terminer
                 </button>
             @endif
             @if ($ronde->scans->where('anomalie', true)->count() > 0)
                 <a href="{{ route('sie.rondes.export-anomalies', $ronde->id) }}" class="btn btn-outline-danger btn-sm">
-                    <i class="bi bi-file-pdf"></i> Exporter les anomalies
+                    <i class="ti ti-file-pdf"></i> Exporter les anomalies
                 </a>
             @endif
         </div>

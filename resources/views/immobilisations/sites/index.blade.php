@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.contentNavbarLayout')
 
 @section('title', "Sites d'immobilisation")
 
@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h3 class="mb-0">Sites d'immobilisation</h3>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalSite" onclick="newSite()">
-            <i class="bi bi-plus-lg"></i> Nouveau site
+            <i class="ti ti-plus-lg"></i> Nouveau site
         </button>
     </div>
 
