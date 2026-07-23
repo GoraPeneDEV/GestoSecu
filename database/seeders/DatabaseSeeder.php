@@ -44,6 +44,7 @@ class DatabaseSeeder extends Seeder
         $clientRole = Role::firstOrCreate(['name' => 'client', 'guard_name' => 'portail']);
         $clientRole->syncPermissions(['portail-site-view', 'portail-agent-view', 'portail-ronde-view']);
 
+        $this->call(DepartementRolesSeeder::class);
         $this->call(DepartementUsersSeeder::class);
     }
 }
