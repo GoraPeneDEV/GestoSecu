@@ -1,0 +1,53 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc:*)",
+      "Bash(find:*)",
+      "Bash(gh repo:*)",
+      "Bash(php artisan tinker --execute=\":*)",
+      "Bash(npx gitnexus:*)"
+    ],
+    "defaultMode": "bypassPermissions"
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "result=$(cd \"c:/wamp64/www/GestoSecu\" && npx gitnexus status 2>&1 | tr '\\n' ' '); echo \"[GitNexus] $result\"; if echo \"$result\" | grep -qiE 'stale|outdated|no index|not indexed|behind'; then exit 2; fi",
+            "shell": "bash",
+            "asyncRewake": true,
+            "rewakeMessage": "L'index GitNexus est obsolète — relancer `npx gitnexus analyze`. Statut détecté :",
+            "rewakeSummary": "GitNexus tree check — index stale",
+            "timeout": 45,
+            "statusMessage": "Vérification de l'arbre GitNexus..."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(git commit*)",
+            "command": "result=$(cd \"c:/wamp64/www/GestoSecu\" && npx gitnexus status 2>&1 | tr '\\n' ' '); printf '{\"hookSpecificOutput\":{\"hookEventName\":\"PostToolUse\",\"additionalContext\":\"[GitNexus post-commit] %s — Si stale, lancer: npx gitnexus analyze\"}}\\n' \"$result\"",
+            "shell": "bash",
+            "timeout": 30,
+            "statusMessage": "Vérification GitNexus post-commit..."
+          },
+          {
+            "type": "command",
+            "if": "Bash(git merge*)",
+            "command": "result=$(cd \"c:/wamp64/www/GestoSecu\" && npx gitnexus status 2>&1 | tr '\\n' ' '); printf '{\"hookSpecificOutput\":{\"hookEventName\":\"PostToolUse\",\"additionalContext\":\"[GitNexus post-merge] %s — Si stale, lancer: npx gitnexus analyze\"}}\\n' \"$result\"",
+            "shell": "bash",
+            "timeout": 30,
+            "statusMessage": "Vérification GitNexus post-merge..."
+          }
+        ]
+      }
+    ]
+  }
+}
