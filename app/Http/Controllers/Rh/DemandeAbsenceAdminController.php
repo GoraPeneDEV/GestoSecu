@@ -894,6 +894,32 @@ class DemandeAbsenceAdminController extends Controller
         return view('rh.absences-admin.edit', compact('demande'));
     }
 
+    public function update(Request $request, DemandeAbsenceAdmin $demande)
+    {
+        $this->authorize('conge-admin-edit');
+
+        $validated = $request->validate([
+            'type_demande' => 'required|string',
+            'date_debut' => 'required|date',
+            'date_fin' => 'required|date|after_or_equal:date_debut',
+            'motif' => 'required|string',
+        ]);
+
+        $demande->update([
+            'type_conges' => $validated['type_demande'],
+            'date_debut' => $validated['date_debut'],
+            'date_fin' => $validated['date_fin'],
+            'nbr_jour' => $this->calculerJoursOuvrables(
+                Carbon::parse($validated['date_debut']),
+                Carbon::parse($validated['date_fin'])
+            ),
+            'motif' => $validated['motif'],
+        ]);
+
+        return redirect()->route('absences-admin.show', $demande)
+            ->with('success', 'Demande mise à jour avec succès.');
+    }
+
     private function typesConges(): array
     {
         return [

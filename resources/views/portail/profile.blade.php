@@ -3,8 +3,6 @@
 @section('title', 'Mon profil')
 
 @section('content')
-    @php($portailUser = Auth::guard('portail')->user())
-
     <h3 class="mb-4">Mon profil</h3>
 
     <div class="row g-3">

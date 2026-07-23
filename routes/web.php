@@ -107,6 +107,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/calculate-working-days', [DemandeAbsenceAdminController::class, 'calculateWorkingDays'])->name('calculate-working-days');
         Route::get('/{demande}', [DemandeAbsenceAdminController::class, 'show'])->name('show');
         Route::get('/{demande}/edit', [DemandeAbsenceAdminController::class, 'edit'])->name('edit');
+        Route::put('/{demande}', [DemandeAbsenceAdminController::class, 'update'])->name('update');
         Route::post('/{demandeId}/validation-superieur', [DemandeAbsenceAdminController::class, 'validationSuperieur'])->name('validation-superieur');
         Route::post('/{demandeId}/validation-rh', [DemandeAbsenceAdminController::class, 'validationRH'])->name('validation-rh');
         Route::post('/{demande}/annuler', [DemandeAbsenceAdminController::class, 'annuler'])->name('annuler');
@@ -423,10 +424,10 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{ronde}', [App\Http\Controllers\sie\RondeController::class, 'show'])->name('show');
         Route::put('/{ronde}/terminer', [App\Http\Controllers\sie\RondeController::class, 'terminer'])->name('terminer');
         Route::prefix('api')->name('api.')->group(function () {
+            Route::get('rondes/stats', [App\Http\Controllers\sie\RondeController::class, 'getStats'])->name('rondes.stats');
             Route::get('/rondes/{ronde}', [App\Http\Controllers\sie\RondeController::class, 'getRondeInfo'])->name('getRondeInfo');
             Route::post('/scans', [App\Http\Controllers\sie\RondeController::class, 'storeScan'])->name('storeScan');
             Route::post('/scans/{scan}/photo', [App\Http\Controllers\sie\RondeController::class, 'storePhoto'])->name('storePhoto');
-            Route::get('rondes/stats', [App\Http\Controllers\sie\RondeController::class, 'getStats'])->name('rondes.stats');
         });
     });
 
