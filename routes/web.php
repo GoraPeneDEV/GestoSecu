@@ -460,6 +460,20 @@ Route::middleware(['auth'])->group(function () {
     });
 
     // ===========================
+    // COMPTABILITÉ
+    // ===========================
+    Route::prefix('comptabilite')->name('comptabilite.')->group(function () {
+        Route::get('/dashboard', [App\Http\Controllers\Comptabilite\DashboardController::class, 'index'])->name('dashboard');
+
+        Route::prefix('exports')->name('exports.')->group(function () {
+            Route::get('/livre-paie', [App\Http\Controllers\Comptabilite\ExportController::class, 'livrePaie'])->name('livre-paie');
+            Route::get('/rapport-masse-salariale', [App\Http\Controllers\Comptabilite\ExportController::class, 'rapportMasseSalariale'])->name('rapport-masse-salariale');
+            Route::get('/virements-bancaires', [App\Http\Controllers\Comptabilite\ExportController::class, 'virementsBancaires'])->name('virements-bancaires');
+            Route::get('/declaration-ipres', [App\Http\Controllers\Comptabilite\ExportController::class, 'declarationIpres'])->name('declaration-ipres');
+        });
+    });
+
+    // ===========================
     // ACHATS & LOGISTIQUE
     // ===========================
     Route::get('/achats-logistique/dashboard', [App\Http\Controllers\AchatsLogistique\DashboardController::class, 'index'])->name('achats-logistique.dashboard');

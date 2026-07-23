@@ -1,9 +1,9 @@
 {
   "menu": [
     {
-      "url": "/dashboard",
+      "url": "/comptabilite/dashboard",
       "name": "Tableau de bord",
-      "slug": "dashboard",
+      "slug": "comptabilite.dashboard",
       "icon": "menu-icon tf-icons ti ti-smart-home"
     },
     {
@@ -15,6 +15,17 @@
         { "url": "/paie/bulletins", "name": "Bulletins", "slug": "paie.bulletins.index" },
         { "url": "/paie/simulations", "name": "Simulations", "slug": "paie.simulations.index" },
         { "url": "/paie/baremes-fiscaux", "name": "Barèmes fiscaux", "slug": "paie.baremes-fiscaux.index" }
+      ]
+    },
+    {
+      "name": "Comptabilité",
+      "icon": "menu-icon tf-icons ti ti-report-money",
+      "slug": "app-comptabilite",
+      "submenu": [
+        { "url": "/comptabilite/exports/livre-paie", "name": "Livre de paie", "slug": "comptabilite.exports.livre-paie" },
+        { "url": "/comptabilite/exports/rapport-masse-salariale", "name": "Rapport masse salariale", "slug": "comptabilite.exports.rapport-masse-salariale" },
+        { "url": "/comptabilite/exports/virements-bancaires", "name": "Virements bancaires", "slug": "comptabilite.exports.virements-bancaires" },
+        { "url": "/comptabilite/exports/declaration-ipres", "name": "Déclaration IPRES", "slug": "comptabilite.exports.declaration-ipres" }
       ]
     }
   ]
