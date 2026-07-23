@@ -31,6 +31,12 @@
       "icon": "menu-icon tf-icons ti ti-users"
     },
     {
+      "url": "/portail/rapports",
+      "name": "Rapports",
+      "slug": "portail.rapports.index",
+      "icon": "menu-icon tf-icons ti ti-file-report"
+    },
+    {
       "url": "/portail/support",
       "name": "Support",
       "slug": "portail.support",

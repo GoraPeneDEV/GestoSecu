@@ -74,6 +74,12 @@ class PortailMenuMiddleware
                     'icon' => 'menu-icon tf-icons ti ti-users'
                 ],
                 (object) [
+                    'url' => '/portail/rapports',
+                    'name' => 'Rapports',
+                    'slug' => 'portail.rapports.index',
+                    'icon' => 'menu-icon tf-icons ti ti-file-report'
+                ],
+                (object) [
                     'url' => '/portail/support',
                     'name' => 'Support',
                     'slug' => 'portail-support',

@@ -7,6 +7,7 @@ use App\Http\Controllers\Portail\SiteController;
 use App\Http\Controllers\Portail\AgentController;
 use App\Http\Controllers\Portail\RondeController;
 use App\Http\Controllers\Portail\ParcController;
+use App\Http\Controllers\Portail\RapportController;
 
 Route::name('portail.')->group(function () {
 
@@ -52,6 +53,18 @@ Route::name('portail.')->group(function () {
             Route::get('/stats', [RondeController::class, 'getStats'])->name('stats');
             Route::get('/{ronde}', [RondeController::class, 'show'])->name('show');
             Route::get('/{ronde}/export-anomalies', [RondeController::class, 'exportAnomalies'])->name('export-anomalies');
+        });
+
+        Route::prefix('rapports')->name('rapports.')->group(function () {
+            Route::get('/', [RapportController::class, 'index'])->name('index');
+            Route::get('/sites', [RapportController::class, 'sites'])->name('sites');
+            Route::get('/sites/export', [RapportController::class, 'sitesPdf'])->name('sites.export');
+            Route::get('/agents', [RapportController::class, 'agents'])->name('agents');
+            Route::get('/agents/export', [RapportController::class, 'agentsPdf'])->name('agents.export');
+            Route::get('/rondes', [RapportController::class, 'rondes'])->name('rondes');
+            Route::get('/rondes/export', [RapportController::class, 'rondesPdf'])->name('rondes.export');
+            Route::get('/parc', [RapportController::class, 'parc'])->name('parc');
+            Route::get('/parc/export', [RapportController::class, 'parcPdf'])->name('parc.export');
         });
 
         Route::get('/support', function () {
