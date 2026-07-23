@@ -95,6 +95,58 @@
         </div>
 
         <div class="card mb-3">
+            <div class="card-header">Famille</div>
+            <div class="card-body">
+                <h6>Épouse(s)</h6>
+                <div id="epousesRows">
+                    @foreach ($employe->epouses as $epouse)
+                        <div class="row g-2 mb-2 align-items-center">
+                            <input type="hidden" name="epouses[{{ $loop->index }}][id]" value="{{ $epouse->id }}">
+                            <div class="col-md-5">
+                                <input type="text" name="epouses[{{ $loop->index }}][nom_complet]" class="form-control form-control-sm" value="{{ $epouse->nom_complet }}" required>
+                            </div>
+                            <div class="col-md-5">
+                                <input type="text" name="epouses[{{ $loop->index }}][telephone]" class="form-control form-control-sm" value="{{ $epouse->telephone }}">
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="removeFamilleRow(this, {{ $epouse->id }}, 'epouses_to_delete')"><i class="ti ti-x"></i></button>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <button type="button" class="btn btn-sm btn-outline-primary mb-3" onclick="addEpouseRow()">
+                    <i class="ti ti-plus"></i> Ajouter une épouse
+                </button>
+
+                <h6>Enfant(s)</h6>
+                <div id="enfantsRows">
+                    @foreach ($employe->enfants as $enfant)
+                        <div class="row g-2 mb-2 align-items-center">
+                            <input type="hidden" name="enfants[{{ $loop->index }}][id]" value="{{ $enfant->id }}">
+                            <div class="col-md-4">
+                                <input type="text" name="enfants[{{ $loop->index }}][nom_complet]" class="form-control form-control-sm" value="{{ $enfant->nom_complet }}" required>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" name="enfants[{{ $loop->index }}][telephone]" class="form-control form-control-sm" value="{{ $enfant->telephone }}">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="date" name="enfants[{{ $loop->index }}][date_naissance]" class="form-control form-control-sm" value="{{ $enfant->date_naissance?->format('Y-m-d') }}">
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="removeFamilleRow(this, {{ $enfant->id }}, 'enfants_to_delete')"><i class="ti ti-x"></i></button>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="addEnfantRow()">
+                    <i class="ti ti-plus"></i> Ajouter un enfant
+                </button>
+
+                <div id="familleDeleteInputs"></div>
+            </div>
+        </div>
+
+        <div class="card mb-3">
             <div class="card-header">Poste et département</div>
             <div class="card-body row g-3">
                 <div class="col-md-6">
@@ -137,24 +189,24 @@
                 <div class="col-md-4">
                     <label class="form-label">Type de contrat *</label>
                     <select name="type_contrat" class="form-select" required>
-                        <option value="CDI" @selected(old('type_contrat', $contratActif->type_contrat ?? '') == 'CDI')>CDI</option>
-                        <option value="CDD" @selected(old('type_contrat', $contratActif->type_contrat ?? '') == 'CDD')>CDD</option>
-                        <option value="Stage" @selected(old('type_contrat', $contratActif->type_contrat ?? '') == 'Stage')>Stage</option>
+                        <option value="CDI" @selected(old('type_contrat', $contratActif?->type_contrat ?? '') == 'CDI')>CDI</option>
+                        <option value="CDD" @selected(old('type_contrat', $contratActif?->type_contrat ?? '') == 'CDD')>CDD</option>
+                        <option value="Stage" @selected(old('type_contrat', $contratActif?->type_contrat ?? '') == 'Stage')>Stage</option>
                     </select>
                 </div>
                 <div class="col-md-4">
                     <label class="form-label">Salaire (FCFA) *</label>
-                    <input type="number" name="montant" class="form-control" min="0" value="{{ old('montant', $contratActif->montant ?? '') }}" required>
+                    <input type="number" name="montant" class="form-control" min="0" value="{{ old('montant', $contratActif?->montant ?? '') }}" required>
                 </div>
-                <input type="hidden" name="contrat_id" value="{{ $contratActif->id ?? '' }}">
+                <input type="hidden" name="contrat_id" value="{{ $contratActif?->id ?? '' }}">
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
                     <label class="form-label">Date de début *</label>
-                    <input type="date" name="date_debut" class="form-control" value="{{ old('date_debut', $contratActif->date_debut?->format('Y-m-d') ?? '') }}" required>
+                    <input type="date" name="date_debut" class="form-control" value="{{ old('date_debut', $contratActif?->date_debut?->format('Y-m-d') ?? '') }}" required>
                 </div>
                 <div class="col-md-4">
                     <label class="form-label">Date de fin</label>
-                    <input type="date" name="date_fin" class="form-control" value="{{ old('date_fin', $contratActif->date_prevu_fin?->format('Y-m-d') ?? '') }}">
+                    <input type="date" name="date_fin" class="form-control" value="{{ old('date_fin', $contratActif?->date_prevu_fin?->format('Y-m-d') ?? '') }}">
                 </div>
             </div>
         </div>
@@ -189,5 +241,57 @@ document.getElementById('service_militaire').addEventListener('change', function
         el.classList.toggle('d-none', this.value !== 'Oui');
     }.bind(this));
 });
+
+let epouseIndex = {{ $employe->epouses->count() }};
+function addEpouseRow() {
+    const wrapper = document.getElementById('epousesRows');
+    const div = document.createElement('div');
+    div.className = 'row g-2 mb-2 align-items-center';
+    div.innerHTML = `
+        <div class="col-md-5">
+            <input type="text" name="epouses[${epouseIndex}][nom_complet]" class="form-control form-control-sm" placeholder="Nom complet" required>
+        </div>
+        <div class="col-md-5">
+            <input type="text" name="epouses[${epouseIndex}][telephone]" class="form-control form-control-sm" placeholder="Téléphone">
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-sm btn-outline-danger" onclick="this.closest('.row').remove()"><i class="ti ti-x"></i></button>
+        </div>
+    `;
+    wrapper.appendChild(div);
+    epouseIndex++;
+}
+
+let enfantIndex = {{ $employe->enfants->count() }};
+function addEnfantRow() {
+    const wrapper = document.getElementById('enfantsRows');
+    const div = document.createElement('div');
+    div.className = 'row g-2 mb-2 align-items-center';
+    div.innerHTML = `
+        <div class="col-md-4">
+            <input type="text" name="enfants[${enfantIndex}][nom_complet]" class="form-control form-control-sm" placeholder="Nom complet" required>
+        </div>
+        <div class="col-md-3">
+            <input type="text" name="enfants[${enfantIndex}][telephone]" class="form-control form-control-sm" placeholder="Téléphone">
+        </div>
+        <div class="col-md-3">
+            <input type="date" name="enfants[${enfantIndex}][date_naissance]" class="form-control form-control-sm">
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-sm btn-outline-danger" onclick="this.closest('.row').remove()"><i class="ti ti-x"></i></button>
+        </div>
+    `;
+    wrapper.appendChild(div);
+    enfantIndex++;
+}
+
+function removeFamilleRow(button, id, deleteFieldName) {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = deleteFieldName + '[]';
+    input.value = id;
+    document.getElementById('familleDeleteInputs').appendChild(input);
+    button.closest('.row').remove();
+}
 </script>
 @endpush

@@ -89,6 +89,23 @@
         </div>
 
         <div class="card mb-3">
+            <div class="card-header">Famille</div>
+            <div class="card-body">
+                <h6>Épouse(s)</h6>
+                <div id="epousesRows"></div>
+                <button type="button" class="btn btn-sm btn-outline-primary mb-3" onclick="addEpouseRow()">
+                    <i class="ti ti-plus"></i> Ajouter une épouse
+                </button>
+
+                <h6>Enfant(s)</h6>
+                <div id="enfantsRows"></div>
+                <button type="button" class="btn btn-sm btn-outline-primary" onclick="addEnfantRow()">
+                    <i class="ti ti-plus"></i> Ajouter un enfant
+                </button>
+            </div>
+        </div>
+
+        <div class="card mb-3">
             <div class="card-header">Poste et département</div>
             <div class="card-body row g-3">
                 <div class="col-md-6">
@@ -209,5 +226,48 @@ document.getElementById('service_militaire').addEventListener('change', function
         el.classList.toggle('d-none', this.value !== 'Oui');
     }.bind(this));
 });
+
+let epouseIndex = 0;
+function addEpouseRow() {
+    const wrapper = document.getElementById('epousesRows');
+    const div = document.createElement('div');
+    div.className = 'row g-2 mb-2 align-items-center';
+    div.innerHTML = `
+        <div class="col-md-5">
+            <input type="text" name="epouses[${epouseIndex}][nom_complet]" class="form-control form-control-sm" placeholder="Nom complet" required>
+        </div>
+        <div class="col-md-5">
+            <input type="text" name="epouses[${epouseIndex}][telephone]" class="form-control form-control-sm" placeholder="Téléphone">
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-sm btn-outline-danger" onclick="this.closest('.row').remove()"><i class="ti ti-x"></i></button>
+        </div>
+    `;
+    wrapper.appendChild(div);
+    epouseIndex++;
+}
+
+let enfantIndex = 0;
+function addEnfantRow() {
+    const wrapper = document.getElementById('enfantsRows');
+    const div = document.createElement('div');
+    div.className = 'row g-2 mb-2 align-items-center';
+    div.innerHTML = `
+        <div class="col-md-4">
+            <input type="text" name="enfants[${enfantIndex}][nom_complet]" class="form-control form-control-sm" placeholder="Nom complet" required>
+        </div>
+        <div class="col-md-3">
+            <input type="text" name="enfants[${enfantIndex}][telephone]" class="form-control form-control-sm" placeholder="Téléphone">
+        </div>
+        <div class="col-md-3">
+            <input type="date" name="enfants[${enfantIndex}][date_naissance]" class="form-control form-control-sm">
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-sm btn-outline-danger" onclick="this.closest('.row').remove()"><i class="ti ti-x"></i></button>
+        </div>
+    `;
+    wrapper.appendChild(div);
+    enfantIndex++;
+}
 </script>
 @endpush

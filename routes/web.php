@@ -10,6 +10,7 @@ use App\Http\Controllers\Rh\EmployeController;
 use App\Http\Controllers\Rh\ContratEmployeController;
 use App\Http\Controllers\Rh\PlanningController;
 use App\Http\Controllers\Rh\HorairePlanningController;
+use App\Http\Controllers\Rh\DashboardController as RhDashboardController;
 use App\Http\Controllers\Paie\EmployePaieDataController;
 use App\Http\Controllers\Paie\VariablePaieController;
 use App\Http\Controllers\Paie\BulletinPaieController;
@@ -24,6 +25,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    // ── RH ────────────────────────────────────────────────────────
+    Route::get('/rh/dashboard', [RhDashboardController::class, 'index'])->name('rh.dashboard');
 
     // ── Départements ──────────────────────────────────────────────
     Route::resource('departements', DepartementController::class);
