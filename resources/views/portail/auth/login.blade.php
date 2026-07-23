@@ -1,64 +1,88 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Connexion - Portail Client GestoSecu</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-</head>
-<body class="bg-dark d-flex align-items-center" style="min-height: 100vh;">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-5">
-                <div class="card shadow">
-                    <div class="card-body p-5">
-                        <div class="text-center mb-4">
-                            <i class="bi bi-shield-check display-4 text-primary"></i>
-                            <h4 class="mt-2 mb-1">Portail Client GestoSecu</h4>
-                            <p class="text-muted small">Accédez à votre espace client sécurisé</p>
-                        </div>
+@php
+    $configData = Helper::appClasses();
+    $customizerHidden = 'customizer-hide';
+@endphp
 
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                @foreach ($errors->all() as $error)
-                                    <div>{{ $error }}</div>
-                                @endforeach
-                            </div>
-                        @endif
+@extends('layouts/blankLayout')
 
-                        @if (session('error'))
-                            <div class="alert alert-danger">{{ session('error') }}</div>
-                        @endif
+@section('title', 'Connexion - Portail Client')
 
-                        <form method="POST" action="{{ route('portail.login.submit') }}">
-                            @csrf
-                            <div class="mb-3">
-                                <label class="form-label">Adresse email</label>
-                                <input type="email" name="email" class="form-control" value="{{ old('email') }}" required autofocus>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Mot de passe</label>
-                                <input type="password" name="password" class="form-control" required>
-                            </div>
-                            <div class="mb-3 form-check">
-                                <input type="checkbox" name="remember" class="form-check-input" id="remember">
-                                <label class="form-check-label" for="remember">Se souvenir de moi</label>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Se connecter</button>
-                        </form>
+@section('page-style')
+@vite('resources/assets/vendor/scss/pages/page-auth.scss')
+@endsection
 
-                        <div class="text-center mt-4">
-                            <small class="text-muted">Vous êtes un employé GestoSecu ?</small>
-                            <br>
-                            <a href="{{ route('login') }}" class="btn btn-outline-secondary btn-sm mt-2">
-                                Accéder à l'espace employé
-                            </a>
-                        </div>
+@section('content')
+<div class="authentication-wrapper authentication-cover">
+    <a href="{{ url('/') }}" class="app-brand auth-cover-brand">
+        <span class="app-brand-logo demo"><i class="ti ti-shield-check ti-lg text-white"></i></span>
+        <span class="app-brand-text demo text-heading fw-bold">{{ config('app.name', 'GestoSecu') }}</span>
+    </a>
+
+    <div class="authentication-inner row m-0">
+        <div class="d-none d-lg-flex col-lg-8 p-0">
+            <div class="auth-cover-bg auth-cover-bg-color d-flex justify-content-center align-items-center">
+                <img src="{{ asset('assets/img/illustrations/auth-login-illustration-' . $configData['style'] . '.png') }}" alt="portail-login-cover" class="my-5 auth-illustration d-lg-block d-none" data-app-light-img="illustrations/auth-login-illustration-light.png" data-app-dark-img="illustrations/auth-login-illustration-dark.png">
+                <img src="{{ asset('assets/img/illustrations/bg-shape-image-' . $configData['style'] . '.png') }}" alt="portail-login-cover" class="platform-bg" data-app-light-img="illustrations/bg-shape-image-light.png" data-app-dark-img="illustrations/bg-shape-image-dark.png">
+            </div>
+        </div>
+
+        <div class="d-flex col-12 col-lg-4 align-items-center authentication-bg p-sm-12 p-6">
+            <div class="w-px-400 mx-auto mt-12 pt-5">
+                <h4 class="mb-1">Portail Client {{ config('app.name', 'GestoSecu') }} 👋</h4>
+                <p class="mb-6">Accédez à votre espace client sécurisé</p>
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        @foreach ($errors->all() as $error)
+                            <div>{{ $error }}</div>
+                        @endforeach
                     </div>
+                @endif
+
+                @if (session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
+
+                <form id="formAuthentication" class="mb-6" action="{{ route('portail.login.submit') }}" method="POST">
+                    @csrf
+                    <div class="mb-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="contact@client.com" autofocus value="{{ old('email') }}">
+                        @error('email')
+                            <span class="invalid-feedback" role="alert"><span class="fw-medium">{{ $message }}</span></span>
+                        @enderror
+                    </div>
+                    <div class="mb-6 form-password-toggle">
+                        <label class="form-label" for="password">Mot de passe</label>
+                        <div class="input-group input-group-merge @error('password') is-invalid @enderror">
+                            <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
+                            <span class="input-group-text cursor-pointer"><i class="ti ti-eye-off"></i></span>
+                        </div>
+                        @error('password')
+                            <span class="invalid-feedback" role="alert"><span class="fw-medium">{{ $message }}</span></span>
+                        @enderror
+                    </div>
+                    <div class="mb-6 form-check">
+                        <input type="checkbox" name="remember" class="form-check-input" id="remember">
+                        <label class="form-check-label" for="remember">Se souvenir de moi</label>
+                    </div>
+                    <button class="btn btn-primary d-grid w-100" type="submit">Se connecter</button>
+                </form>
+
+                <div class="text-center">
+                    <div class="divider my-6">
+                        <div class="divider-text">ou</div>
+                    </div>
+                    <p class="text-center">
+                        <span class="text-muted">Vous êtes un employé {{ config('app.name', 'GestoSecu') }} ?</span>
+                        <a href="{{ route('login') }}" class="fw-medium text-primary text-decoration-none">
+                            Accédez à l'espace employé
+                            <i class="ti ti-arrow-right ms-1"></i>
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-</body>
-</html>
+</div>
+@endsection
